@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head.ejs', { title: 'Registration' }) %>
+    <body>
+
+        <div class="myform">
+            <h1>Registration</h1>
+
+            <form action="/register" method="POST" >
+                <label>Username</label>
+                <input type="text" name="username" min="4" max="15" required/>
+                <label>Password</label>
+                <input type="password" name="password" id="password" min="4" max="20" required/>
+                <i class="bi bi-eye-slash" onclick="passwordVisibility()" id="togglePassword"></i>
+                <label>Repeat Password</label>
+                <input type="password" name="password2" id="password2" min="4" max="20" required/>
+                <i class="bi bi-eye-slash" onclick="passwordVisibility2()" id="togglePassword2"></i>
+                <label>Prefered hours</label>
+                <label>From</label>
+                <input type="number" name="hour1" id="hour1" min="8" max="20" required/>
+                <label>Till</label>
+                <input type="number" name="hour2" id="hour2" min="8" max="20" required/>
+
+                <div class="submitButton" >
+                    <p><input type="submit" value="Register"/></p>
+                </div>
+            </form>
+            
+            <div class="submitButton" >
+                <button onclick="location.href='/login'">Login</button>
+            </div>
+
+            
+        <div class = "error">
+            <p><%= message %></p>
+        </div>
+        </div>
+
+
+    </body>
+
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Timetable</title>
+        <meta charset="utf-8">
+        <!-- scheduler -->
+        <script src="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.js"
+            charset="utf-8"></script>
+        <link href="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler_material.css"
+            rel="stylesheet" type="text/css" charset="utf-8">
+        <link href="/viewstyle.css" rel="stylesheet" type="text/css">
+
+    </head>
+    <body>
+        <div id="scheduler_here" class="dhx_cal_container">
+                <div class="dhx_cal_navline">
+                    <div class="dhx_cal_today_button"></div>
+                    <div class="dhx_cal_tab" name="day_tab"></div>
+                    <div class="dhx_cal_tab" name="week_tab"></div>
+                </div>
+                <div class="dhx_cal_header"></div>
+                <div class="dhx_cal_data"></div>
+        </div>
+
+        <button class="logbutton" onclick="location.href='/subject'"><b>Back to subjects</b></button>
+
+        <script>
+            // set format of dates in the data source
+            scheduler.config.xml_date="%Y-%m-%d %H:%i";
+            let today = new Date();
+            scheduler.config.first_hour = 7;
+            scheduler.config.last_hour = 20;
+            scheduler.init('scheduler_here', new Date(today.getFullYear(),today.getMonth()+1,today.getDate()), "week");
+            scheduler.load("http://localhost:8080/schedule", "json");
+            scheduler.config.lightbox.sections=[
+                {name:"subject", height:50, map_to:"subject", type:"textarea" , focus:true},
+                {name:"teacher", height:50, map_to:"teacher", type:"textarea" },
+                {name:"time", height:72, type:"time", map_to:"auto"}
+            ];
+
+            // scheduler.createDataProcessor("http://localhost:8080/schedule", "REST");
+            let dp = scheduler.createDataProcessor("http://localhost:8080/schedule");
+            dp.init(scheduler);
+            // use RESTful API on the backend
+            dp.setTransactionMode("REST");
+        </script>
+    </body>
+</html>

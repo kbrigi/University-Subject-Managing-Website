@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head.ejs', { title: 'Login' }) %>
+    <body>
+
+        <div class="myform">
+            <h1>Login</h1>
+
+            <form action="/login" method="POST" >
+                <label>Username</label>
+                <input type="text" name="username" min="4" max="15" required/>
+                <label>Password</label>
+                <input type="password" name="password" id="password" min="4" max="20" required/>
+                <i class="bi bi-eye-slash" onclick="passwordVisibility()" id="togglePassword"></i>
+
+                <div class="submitButton" >
+                    <p><input type="submit" value="Login"/></p>
+                </div>
+
+            </form>
+
+            <div class="submitButton" >
+                <button onclick="location.href='/register'">Register</button>
+            </div>
+            
+        <div class = "error">
+            <p><%= message %></p>
+        </div>
+        </div>
+
+
+    </body>
+
+</html>

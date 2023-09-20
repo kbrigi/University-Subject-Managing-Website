@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <%- include('partials/head.ejs', { title: 'Students'}) %>
+  <body>
+    <div class="myform">
+        
+        <%- include('partials/navbar.ejs' , { username: username, fromSubj: fromSubj  }) %>
+        <h1>Add teacher</h1>
+
+        <form  method="POST">
+            <label for="subjectID">Subject ID: </label>
+            <select name="subjectID" id="subjectID" min="0" max="10000" required>
+                <% subj.forEach((sub) => { %>        
+                    <option value="<%= sub.subID %>"><%= sub.subID %></option>
+                <% }) %>
+            </select>
+            
+            <label for="userName">Teacher: </label>
+            <select name="userName" id="userName" required>
+                <% teacher.forEach((t) => { %>  
+                    <% if (t.userRole == 'user') { %>
+                    <option value="<%= t.userName %>"><%= t.userName %></option>
+                    <% } %>      
+                <% }) %>
+            </select>
+
+            <div class="submits">
+                <input type="submit" formaction="/registration/1" value="Join" />
+                <input type="submit" formaction="/registration/0" value="Leave" />
+            </div>
+        </form>
+
+        <div class = "error">
+            <p><%= message %></p>
+        </div>
+    </div>
+    
+    <% if (role) { %>
+        <%- include('partials/button.ejs', { label: 'Logout', link: '/login' })%>
+    <% } else { %>
+        <%- include('partials/button.ejs', { label: 'Login', link: '/login' })%>
+    <% } %>
+  </body>
+</html>

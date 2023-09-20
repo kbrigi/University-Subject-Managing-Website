@@ -1,0 +1,145 @@
+body {
+    background-color: rgb(31, 29, 29);
+	font:600 16px/18px Arial, sans-serif;
+}
+
+html, body{
+    margin:0px;
+    padding:0px;
+    height:100%;
+    overflow:hidden;
+}
+
+#scheduler_here {
+    background-color: rgb(212, 206, 182);
+    border-radius: 25px;
+    margin-left: 10%;
+    margin-top: 5%;
+    width:80%; 
+    height:75%;
+    padding-left: 5%;
+}
+
+.mytable, .form, .myform{
+    margin-top: 5%;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 2%;
+    padding-top: 1%;
+    background-color: rgb(212, 206, 182);
+    width: 25%;
+    border-radius: 25px;
+}
+
+
+.IDbutton{
+    all: unset;
+    cursor: pointer;
+}
+
+.IDbutton:focus {
+    font-weight: bold;
+  }
+
+table{
+    align-self: center;
+}
+
+.message{
+    padding-left: 10%;
+    padding-bottom: 2%;
+    padding-top: 1%;
+    padding-right: 10%;
+    background-color: rgb(212, 206, 182);
+    width: 25%;
+    border-radius: 25px;
+}
+
+button.logbutton{
+    margin-left: 50%;
+    margin-top: 3%;
+    padding: 1%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    background-color: rgb(212, 206, 182);
+    border-radius: 15px;
+}
+
+nav a:hover, .logbutton:hover {
+    background-color: rgb(198, 181, 154);
+}
+
+nav{
+    display: flex;
+    flex-wrap: wrap; 
+
+    list-style-type: none;
+    margin: 0%;
+    padding: 0%;
+    overflow: hidden;
+}
+  
+.navbar > li {
+    float: right;
+    border-right: 1px solid rgb(132, 128, 128);
+}
+ 
+
+.navbar > li a { 
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+.user{
+    float:left;
+    margin-right: 5%;
+} 
+
+input[type=file]{
+    margin-top: 3%;
+}
+
+.submitButton > button, input[type=submit], .deleteButton {
+    padding:5px 15px; 
+    margin: 3%;
+    border:0 none;
+    cursor:pointer;
+    border-radius: 5px; 
+    background-color: rgb(242, 240, 237);
+    right: 55%;
+}
+
+.myform > form > label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.myform > form > input, .myform > form > select
+{
+    height: 30px;
+    width: 80%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+form i {
+    margin-left: -10%;
+    display:inline;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.error{
+    margin: 3%;
+}

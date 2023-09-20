@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <div class="form">
+        <h1>New subject</h1>
+
+        <form action="/subject" method="POST">
+            <p>ID: <input type="number" name="id" min="0" max="3000" required/></p>
+            <p>Name: <input type="text" name="name" required/></p>
+            <p>Class: <input type="number" name="class" min="1" max="13" required/></p>
+            <p>Lecture: <input type="number" name="lecture" min="1" max="4" required/></p>
+            <p>Seminar: <input type="number" name="seminar" min="0" max="4" required /></p>
+            <p>Laboratory: <input type="number" name="lab" min="0" max="4" required/></p>
+            <p><input type="submit" value="Submit" /></p>
+        </form>
+    </div>
+</body>
+
+</html>

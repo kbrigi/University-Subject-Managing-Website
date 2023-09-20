@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <%- include('partials/head.ejs', { title: 'Subjects' }) %>
+  <body>
+    <div class="mytable">
+    <%- include('partials/navbar.ejs' , { username: username, role: role, fromSubj: fromSubj }) %>
+      <h1>Subjects</h1>
+      <% if (subjects.length) { %>
+        <table>
+          <tr><th>ID</th><th>Name</th><th>Class</th><th>Lecture</th><th>Seminar</th><th>Laboratory</th></tr>
+          <% subjects.forEach((sub) => { %>
+            <tr id="subj-<%=sub.subID%>">
+              <td><button class="IDbutton" onclick="showFiles(event, '<%= sub.subID %>')"><%= sub.subID %></button></td>
+              <td><%= sub.subName %></td>
+              <td><%= sub.class %></td>
+              <td><%= sub.lecture %></td>
+              <td><%= sub.seminar %></td>
+              <td><%= sub.lab %></td>
+              <td><span><a href="/<%= sub.subID %>">details</a></span></td>
+              <% if (role === 'admin') { %>
+                <td><button class="deleteButton"  onclick="deleteSubject(event,'<%= sub.subID %>')">Delete</button></td>
+              <% } %> 
+            </tr>
+          <% }) %>
+        </table>
+      <% } else { %>
+        <p class="message">No subjects to show</p>
+      <% } %>
+
+        <div class="filelist">
+          <ul id="files"></ul>
+        </div>
+
+        <div class="message">
+          <p id="mes"></p>
+        </div>
+
+  </div>
+
+  <% if (role) { %>
+    <%- include('partials/button.ejs', { label: 'Logout', link: '/login' })%>
+  <% } else { %>
+    <%- include('partials/button.ejs', { label: 'Login', link: '/login' })%>
+  <% } %>
+  
+  </body>
+</html>

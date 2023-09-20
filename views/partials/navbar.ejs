@@ -1,0 +1,16 @@
+<nav class="navbar">
+    <div class="user">
+        <p><b><%= username %></b></p>
+    </div>
+    <% if ( fromSubj && role === 'user' ) { %>
+        <li><a href="/subjects/<%= username %>">MySubjects</a></li>
+    <% } else { %> 
+        <li><a href="/subject">Subjects</a></li>
+    <% } %>   
+    <% if (role != '' ) { %>
+        <% if (role === "admin" ) { %>
+            <li><a href="/addsubj">Add subject</a></li>
+            <li><a href="/registration">Add teacher</a></li> 
+        <% } %> 
+    <% } %>
+</nav>

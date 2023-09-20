@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <%- include('partials/head.ejs', { title: subj.subName }) %>
+  <body>
+    <div class="mytable">
+      <%- include('partials/navbar.ejs') %>
+      <h1><%= subj.subName %>: </h1>
+      <table>
+          <tr><th>ID</th><th>Name</th><th>Class</th><th>Lecture</th><th>Seminar</th><th>Laboratory</th></tr>
+            <tr>
+              <td><%= subj.subID %></td>
+              <td><%= subj.subName %></td>
+              <td><%= subj.class %></td>
+              <td><%= subj.lecture %></td>
+              <td><%= subj.seminar %></td>
+              <td><%= subj.lab %></td>
+            </tr>
+        </table>
+
+      <% if (teacher.length) { %>  
+        <h3>Teacher: </h3>
+        <ul>
+        <% teacher.forEach((t) => { %>
+          <li><%= t.username %></li>
+        <% }) %>
+        </ul>
+
+      <% } %> 
+
+      <% if (file.length) { %>
+        <table>
+          
+          <tr><th>FileID</th><th>FileName</th></tr>
+              <% file.forEach((f) => { %>
+          <tr id="file-<%=f.fileID%>">
+              <td><%= f.fileID %></td>
+              <td><a href="<%= f.fileName %>" download><%= f.fileName %></a></td>
+              <% if (owner === 1 || isteacher === 1) { %>
+                <%- include('partials/deletefile.ejs', { f: f } )%>
+              <% } %> 
+          </tr>
+              <% }) %>
+        </table>   
+
+      <% } %> 
+
+      <% if (owner === 1 || isteacher === 1) { %>
+        <%- include('partials/addfile.ejs')%>
+      <% } %> 
+
+      <div class="message">
+          <p id="mes"></p>
+      </div>
+    </div>
+
+    <% if (role) { %>
+      <%- include('partials/button.ejs', { label: 'Logout', link: '/login' })%>
+    <% } else { %>
+      <%- include('partials/button.ejs', { label: 'Login', link: '/login' })%>
+    <% } %>
+
+  </body>
+</html>
