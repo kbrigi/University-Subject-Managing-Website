@@ -35,5 +35,13 @@
 		can set if a student joins/leaves a subject
 		can create new subjects
 	
-	
+##Preview
+
+![](./screenshots/login.png)
+
+![](./screenshots/registration.png)
+
+![](./screenshots/subjs.png)
+
+
 	
