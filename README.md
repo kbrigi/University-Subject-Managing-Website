@@ -35,7 +35,7 @@
 		can set if a student joins/leaves a subject
 		can create new subjects
 	
-##Preview
+## Preview
 
 ![](./screenshots/login.png)
 
